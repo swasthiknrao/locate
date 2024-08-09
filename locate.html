@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locate on Map</title>
+  <link rel="stylesheet" href="locate.css">
+</head>
+<body>
+  <div class="contain">
+    <input type="text" id="source" placeholder="SOURCE"><br>
+    <input type="text" id="destination" placeholder="DESTINATION">
+    <button type="button" id="clear">CLEAR</button>
+    <button type="button" id="submit">SUBMIT</button>
+  </div>
+  <script>
+    const clearButton = document.getElementById("clear");
+    const submitButton = document.getElementById("submit");
+    const sourceInput = document.getElementById("source");
+    const destinationInput = document.getElementById("destination");
+
+    clearButton.addEventListener('click', () => {
+      sourceInput.value = "";
+      destinationInput.value = "";
+    });
+
+    submitButton.addEventListener('click', () => {
+      const source = sourceInput.value;
+      const destination = destinationInput.value;
+      
+      // Build the URL dynamically using template literalsxx`
+      const mapUrl = `https://www.google.com/maps/dir/?api=1&origin=${source}&destination=${destination}`;
+      window.location.href = mapUrl;
+    });
+  </script>
+</body>
+</html>
